@@ -30,14 +30,13 @@ class AnagramMid {
   }
   /**
    * Find only the longest anagrams for a given word
-   * 
+   *
    * @param{ import("express").Request} req
-   * @param{ import("express").Response} res 
-   * @param{ import("express").NextFunction} next 
+   * @param{ import("express").Response} res
+   * @param{ import("express").NextFunction} next
    */
-  static findLongest(req, res, next) {
+  static findLongest(req, res, next = e => console.log(e)) {
     try {
-
       const { word, includes, excludes, language } = AnagramMid.parseParams(
         req.query
       );
@@ -67,10 +66,10 @@ class AnagramMid {
   /**
    * Find all anagrams for a given word
    * @param{ import("express").Request} req
-   * @param{ import("express").Response} res 
-   * @param{ import("express").NextFunction} next 
+   * @param{ import("express").Response} res
+   * @param{ import("express").NextFunction} next
    */
-  static find(req, res, next) {
+  static find(req, res, next = e => console.log(e)) {
     try {
       const { word, includes, excludes, language } = AnagramMid.parseParams(
         req.query
@@ -89,7 +88,7 @@ class AnagramMid {
 
       const anagrams = Anagram(dictionary).find({ word, excludeSelf: true });
 
-      res.send(anagrams);
+      res.status(200).send(anagrams);
     } catch (err) {
       res.status(500);
       next(err);
@@ -98,10 +97,10 @@ class AnagramMid {
   /**
    * Check if 2 words are anagrams
    * @param{ import("express").Request} req
-   * @param{ import("express").Response} res 
-   * @param{ import("express").NextFunction} next 
+   * @param{ import("express").Response} res
+   * @param{ import("express").NextFunction} next
    */
-  static compare(req, res, next) {
+  static compare(req, res, next = e => console.log(e)) {
     try {
       const [word1, word2] = AnagramMid.parseParams(req.query).words;
 
@@ -112,7 +111,7 @@ class AnagramMid {
 
       const anagram = Anagram([""]);
 
-      res.send(anagram.compare(word1, word2));
+      res.status(200).send(anagram.compare(word1, word2));
     } catch (err) {
       res.status(500);
       next(err);

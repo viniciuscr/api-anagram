@@ -1,12 +1,18 @@
 # API to work with anagrams.
 
 > This is a old challenge that I've restored from a old repo.
-
+```
+Port to lambda function
+I have add a new folder "/api" to serve the endpoints as lambdas functions hosted on zeit.
+```
 It was given a startup project with the expected endpoints using expressjs:
 
 1. `/find`: recieves a word and return all anagrams found on a preset dictionary.
+    - https://api-anagram.now.sh/api/find?word=armored
 2. `/find-longest`: recieves a word and return only the longest anagrams found on a preset dictionary
+    - https://api-anagram.now.sh/api/findLongest?word=armored
 3. `/compare`: recive 2 word and return `true` or `false` if they are anagrams.
+    - https://api-anagram.now.sh/api/find?word1=armored&word2=remora
 
 The default dictionary to look for anagram shold be the npm package [word-list](https://www.npmjs.com/package/word-list).
 
