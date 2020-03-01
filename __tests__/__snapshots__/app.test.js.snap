@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GET /find it should return a array with 2 matches 1`] = `"[\\"ban\\",\\"nab\\",\\"ab\\",\\"ba\\"]"`;
+
+exports[`GET /find it should return a array with 4 matches for "aahed" 1`] = `
+Array [
+  "ahead",
+  "aah",
+  "aha",
+  "aa",
+]
+`;
+
+exports[`GET /find it should return a empty array when there is no matches 1`] = `"[]"`;
